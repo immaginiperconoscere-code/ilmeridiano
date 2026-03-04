@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La nuova guerra dei dazi — Il Meridiano</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=IBM+Plex+Sans:wght@300;400;500&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --nero: #0a0a0a;
+    --bianco: #f5f0e8;
+    --rosso: #c0392b;
+    --oro: #b8960c;
+    --grigio: #2a2a2a;
+    --grigio-chiaro: #888;
+    --serif: 'Playfair Display', Georgia, serif;
+    --sans: 'IBM Plex Sans', sans-serif;
+    --mono: 'IBM Plex Mono', monospace;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--nero);
+    color: var(--bianco);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.4;
+  }
+
+  /* HEADER */
+  header {
+    border-bottom: 1px solid #333;
+    padding: 0 2rem;
+    position: sticky;
+    top: 0;
+    background: rgba(10,10,10,0.95);
+    backdrop-filter: blur(10px);
+    z-index: 100;
+  }
+
+  .header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #222;
+  }
+
+  .header-date {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    color: var(--grigio-chiaro);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .header-tagline {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    color: var(--oro);
+    letter-spacing: 0.1em;
+  }
+
+  .header-main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+  }
+
+  .logo {
+    font-family: var(--serif);
+    font-size: 2.2rem;
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    color: var(--bianco);
+    text-decoration: none;
+    line-height: 1;
+  }
+
+  .logo span { color: var(--rosso); }
+
+  nav {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  nav a {
+    font-family: var(--sans);
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--grigio-chiaro);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  nav a:hover { color: var(--bianco); }
+
+  /* ARTICLE */
+  .article-wrapper {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 4rem 2rem 6rem;
+  }
+
+  .article-header {
+    margin-bottom: 3rem;
+    animation: fadeInUp 0.6s ease forwards;
+  }
+
+  .article-category {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: #3498db;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    margin-bottom: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .article-category::before {
+    content: '';
+    display: block;
+    width: 30px;
+    height: 1px;
+    background: #3498db;
+  }
+
+  .article-title {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.5rem;
+  }
+
+  .article-meta {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--grigio-chiaro);
+    padding: 1.2rem 0;
+    border-top: 1px solid #222;
+    border-bottom: 1px solid #222;
+    margin-top: 1.5rem;
+  }
+
+  .meta-author { color: var(--bianco); }
+
+  .meta-dot {
+    width: 3px;
+    height: 3px;
+    background: #444;
+    border-radius: 50%;
+  }
+
+  /* ARTICLE BODY */
+  .article-body {
+    margin-top: 2.5rem;
+  }
+
+  .article-body p {
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: #ccc;
+    margin-bottom: 1.6rem;
+    font-weight: 300;
+  }
+
+  .article-body h2 {
+    font-family: var(--serif);
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--bianco);
+    margin: 3rem 0 1.2rem;
+    padding-left: 1rem;
+    border-left: 3px solid var(--rosso);
+  }
+
+  .article-body .intro {
+    font-size: 1.2rem;
+    color: #ddd;
+    font-weight: 400;
+    line-height: 1.7;
+    border-left: 3px solid var(--oro);
+    padding-left: 1.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .pull-quote {
+    margin: 3rem 0;
+    padding: 2rem 2.5rem;
+    border-top: 1px solid #444;
+    border-bottom: 1px solid #444;
+    position: relative;
+  }
+
+  .pull-quote::before {
+    content: '"';
+    font-family: var(--serif);
+    font-size: 6rem;
+    color: var(--rosso);
+    line-height: 0;
+    position: absolute;
+    top: 2.5rem;
+    left: 0;
+    opacity: 0.4;
+  }
+
+  .pull-quote p {
+    font-family: var(--serif);
+    font-size: 1.4rem !important;
+    font-style: italic;
+    color: var(--bianco) !important;
+    font-weight: 400 !important;
+    line-height: 1.5 !important;
+    margin: 0 !important;
+    padding-left: 1rem;
+  }
+
+  /* FOOTER ARTICOLO */
+  .article-footer {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid #333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: var(--sans);
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--grigio-chiaro);
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .back-link:hover { color: var(--bianco); gap: 1rem; }
+  .back-link::before { content: '←'; }
+
+  .share-label {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--grigio-chiaro);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  /* ALTRI ARTICOLI */
+  .related {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 2rem 6rem;
+    border-top: 1px solid #222;
+    padding-top: 3rem;
+  }
+
+  .related h3 {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--grigio-chiaro);
+    margin-bottom: 2rem;
+  }
+
+  .related-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .related-card {
+    cursor: pointer;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #222;
+  }
+
+  .r-cat {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--rosso);
+    margin-bottom: 0.5rem;
+  }
+
+  .r-title {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    font-weight: 700;
+    line-height: 1.3;
+    transition: color 0.2s;
+  }
+
+  .related-card:hover .r-title { color: var(--oro); }
+
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .article-body > * {
+    animation: fadeInUp 0.5s ease forwards;
+    opacity: 0;
+  }
+
+  @media (max-width: 768px) {
+    nav { display: none; }
+    .related-grid { grid-template-columns: 1fr; }
+    .article-footer { flex-direction: column; gap: 1rem; align-items: flex-start; }
+  }
+
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: var(--nero); }
+  ::-webkit-scrollbar-thumb { background: #444; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-top">
+    <span class="header-date" id="current-date"></span>
+    <span class="header-tagline">Analisi · Approfondimento · Indipendenza</span>
+  </div>
+  <div class="header-main">
+    <a href="index.html" class="logo">Il <span>Meridiano</span></a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="#">Politica</a>
+      <a href="#">Storia</a>
+      <a href="#" style="color:var(--bianco)">Geopolitica</a>
+      <a href="#">Cronaca</a>
+      <a href="#">Chi siamo</a>
+    </nav>
+  </div>
+</header>
+
+<article class="article-wrapper">
+  <div class="article-header">
+    <div class="article-category">Geopolitica</div>
+    <h1 class="article-title">La nuova guerra dei dazi e il destino del commercio globale</h1>
+    <div class="article-meta">
+      <span class="meta-author">La Redazione</span>
+      <span class="meta-dot"></span>
+      <span>3 Marzo 2025</span>
+      <span class="meta-dot"></span>
+      <span>20 min lettura</span>
+      <span class="meta-dot"></span>
+      <span>Geopolitica</span>
+    </div>
+  </div>
+
+  <div class="article-body">
+    <p class="intro">Il mondo si trova di fronte a una svolta epocale nel commercio internazionale. Dopo decenni di globalizzazione trionfante, le grandi potenze hanno riscoperto un'arma antica quanto il capitalismo stesso: il dazio doganale. Quella che sembrava una conquista irreversibile della modernità economica si sta sgretolando sotto i colpi di un nazionalismo economico che credevamo sepolto per sempre.</p>
+
+    <p>Non si tratta di un episodio passeggero, di una crisi temporanea destinata a risolversi con qualche accordo diplomatico. Siamo di fronte a una ridefinizione strutturale dell'ordine economico mondiale, un processo che durerà anni e che cambierà profondamente le regole del gioco per imprese, lavoratori e governi di tutto il pianeta.</p>
+
+    <h2>La storia si ripete</h2>
+
+    <p>Non è la prima volta che il mondo assiste a una guerra commerciale. Negli anni Trenta del Novecento, la famigerata legge Smoot-Hawley, voluta dal Congresso americano nel 1930, alzò le tariffe doganali statunitensi a livelli record — in alcuni settori oltre il 40% — scatenando una spirale di ritorsioni internazionali che contribuì in modo determinante ad aggravare la Grande Depressione. In pochi anni il commercio mondiale si contrasse di oltre il 60%. Quella lezione sembrava appresa per sempre. Sembrava.</p>
+
+    <p>Dopo la Seconda Guerra Mondiale, il mondo occidentale costruì pazientemente un sistema di regole condivise per il commercio internazionale. Prima il GATT, poi l'Organizzazione Mondiale del Commercio: istituzioni pensate proprio per evitare che le tensioni economiche degenerassero in guerre tariffarie distruttive. Per decenni quel sistema ha retto, garantendo una crescita del commercio globale senza precedenti nella storia dell'umanità.</p>
+
+    <p>Oggi, a quasi un secolo dalla Grande Depressione, quel sistema scricchiola pericolosamente. Gli Stati Uniti, che di quell'ordine erano stati i principali architetti e garanti, ne sono diventati i principali contestatori. Il messaggio è chiaro: l'America non si considera più vincolata dalle regole che essa stessa aveva contribuito a scrivere.</p>
+
+    <div class="pull-quote">
+      <p>Il sistema multilaterale costruito dopo la Seconda Guerra Mondiale scricchiola sotto i colpi di un nazionalismo economico che sembrava relegato ai libri di storia.</p>
+    </div>
+
+    <h2>L'escalation americana</h2>
+
+    <p>L'amministrazione americana ha imposto dazi pesanti su centinaia di miliardi di dollari di merci cinesi, europee e di altri partner commerciali, giustificandoli con la necessità di proteggere i lavoratori americani, ridurre deficit commerciali considerati insostenibili e riportare in patria produzioni strategiche delocalizzate all'estero.</p>
+
+    <p>Le motivazioni ufficiali mescolano argomenti economici e considerazioni di sicurezza nazionale. I semiconduttori, le batterie, i pannelli solari, l'acciaio: tutti settori in cui Washington ha deciso che la dipendenza dall'estero rappresenta un rischio inaccettabile. Il termine chiave è "reshoring" — la rilocalizzazione delle produzioni sul suolo americano — accompagnato da ingenti sussidi pubblici attraverso leggi come l'Inflation Reduction Act e il CHIPS Act.</p>
+
+    <p>C'è però una contraddizione di fondo in questa strategia. I dazi proteggono le imprese americane dalla concorrenza straniera, ma alzano i prezzi per i consumatori e per le imprese che usano quei prodotti come input produttivi. Nel lungo periodo, il protezionismo tende a conservare industrie inefficienti invece di stimolarne la modernizzazione. Molti economisti avvertono che il conto finale, per l'economia americana, potrebbe essere salato.</p>
+
+    <h2>La risposta della Cina</h2>
+
+    <p>Pechino non è rimasta a guardare. La Cina ha risposto colpo su colpo, con una strategia attenta e calibrata. Le tariffe cinesi hanno colpito deliberatamente i prodotti agricoli americani — soia, mais, carne di maiale — scegliendo bersagli che fanno male politicamente, negli Stati del Midwest che sono il cuore elettorale del Partito Repubblicano. Un messaggio preciso: ogni azione americana avrà una risposta mirata a massimizzare il dolore politico.</p>
+
+    <p>Ma la vera risposta cinese non è solo tariffaria. Pechino ha accelerato il processo di autonomia tecnologica e finanziaria con una determinazione impressionante. Il progetto "Made in China 2025" punta a rendere il paese autosufficiente nelle tecnologie critiche: intelligenza artificiale, robotica, aerospazio, biotecnologie, energia pulita. Gli investimenti cinesi in ricerca e sviluppo sono cresciuti a ritmi vertiginosi, e in alcuni settori — come le energie rinnovabili e i veicoli elettrici — la Cina ha già raggiunto o superato i livelli occidentali.</p>
+
+    <p>Parallelamente, Pechino lavora alla de-dollarizzazione degli scambi internazionali. L'accordo con l'Arabia Saudita per vendere petrolio in yuan, l'espansione dei BRICS come alternativa al sistema finanziario occidentale, l'avanzamento dello yuan digitale: sono tutti tasselli di una strategia di lungo periodo per ridurre la dipendenza dal sistema finanziario americano.</p>
+
+    <h2>L'Europa al bivio</h2>
+
+    <p>Nel mezzo di questo scontro titanico si trova l'Europa, e in particolare l'Italia. La posizione europea è scomoda per definizione: geograficamente, storicamente e culturalmente parte dell'Occidente, ma economicamente profondamente legata alla Cina. L'Unione Europea è il primo partner commerciale di Pechino, e la Cina è il secondo partner commerciale dell'UE.</p>
+
+    <p>Bruxelles ha cercato a lungo di mantenere i rapporti con entrambe le sponde, coniando la formula del "partner, concorrente, rivale sistemico" per descrivere la relazione con la Cina. Ma la pressione americana per scegliere un campo si fa sempre più intensa, e lo spazio per le posizioni intermedie si restringe.</p>
+
+    <p>L'Europa dipende dagli Stati Uniti per la sicurezza militare — come ha drammaticamente dimostrato la guerra in Ucraina — e dalla Cina per una parte consistente delle sue importazioni, soprattutto in settori strategici come le terre rare, i pannelli solari e la componentistica elettronica. Questa doppia dipendenza, che per anni è sembrata gestibile, oggi appare sempre più come una trappola da cui è difficile uscire senza pagare un prezzo elevato.</p>
+
+    <h2>Le conseguenze per l'Italia</h2>
+
+    <p>Per l'Italia le implicazioni sono concrete e immediate. Il nostro paese è una nazione profondamente esportatrice: la manifattura italiana — dalla meccanica di precisione alla moda, dall'agroalimentare all'automotive, dalla farmaceutica al design — dipende in misura significativa dai mercati internazionali. L'export rappresenta circa un terzo del PIL italiano.</p>
+
+    <p>Un'escalation della guerra commerciale potrebbe colpire duramente il Made in Italy. I vini e i formaggi italiani sono già stati oggetto di minacce tariffarie americane. I macchinari, le automobili di lusso, la componentistica: tutti prodotti che potrebbero diventare bersaglio di ritorsioni. Per le piccole e medie imprese italiane, che costituiscono la spina dorsale del sistema produttivo nazionale, la capacità di assorbire shock tariffari è molto limitata.</p>
+
+    <p>Allo stesso tempo, una eventuale riconfigurazione delle catene di approvvigionamento globali potrebbe offrire opportunità per chi saprà coglierle. La rilocalizzazione di alcune produzioni strategiche in Europa apre spazi per l'industria italiana, a patto che il paese sappia attrezzarsi con politiche industriali adeguate, investimenti in formazione e infrastrutture, e una burocrazia meno soffocante.</p>
+
+    <h2>Il ruolo della politica italiana</h2>
+
+    <p>In questo scenario, la politica italiana si trova di fronte a scelte difficili. Il governo deve destreggiarsi tra la fedeltà atlantica — che impone di non fare troppo affari con la Cina in settori sensibili — e gli interessi delle imprese italiane, che guardano al mercato cinese come a un'opportunità irrinunciabile.</p>
+
+    <p>La questione della Via della Seta — da cui l'Italia si è ritirata — ha mostrato quanto sia difficile trovare un equilibrio. L'uscita dal memorandum con la Cina ha certamente soddisfatto Washington, ma ha anche creato frizioni con Pechino e lasciato qualche interrogativo sul futuro delle relazioni commerciali bilaterali.</p>
+
+    <p>Il rischio per l'Italia è di subire passivamente le decisioni altrui, senza una strategia chiara. Né Washington né Pechino hanno a cuore gli interessi italiani: entrambi vogliono massimizzare i propri vantaggi. L'Italia deve imparare a difendere i propri interessi con maggiore determinazione, in sede europea e nei consessi internazionali.</p>
+
+    <h2>Uno sguardo al futuro</h2>
+
+    <p>La guerra dei dazi non è solo una disputa commerciale: è il sintomo di un cambiamento profondo e strutturale nell'ordine mondiale. Il sistema multilaterale costruito dopo la Seconda Guerra Mondiale scricchiola sotto i colpi di un nazionalismo economico che sembrava relegato ai libri di storia.</p>
+
+    <p>Tre scenari sono possibili. Nel primo, le grandi potenze trovano nuovi equilibri negoziati, ridefinendo le regole del commercio internazionale in modo da tenere conto dei legittimi interessi di sicurezza nazionale senza precipitare in una guerra tariffaria generalizzata. È lo scenario auspicabile, ma forse il meno probabile nel breve periodo.</p>
+
+    <p>Nel secondo scenario, il mondo si divide in blocchi economici separati: una sfera americana, una cinese e, forse, una europea relativamente autonoma. Il commercio internazionale si riduce, i prezzi salgono, la crescita globale rallenta. È uno scenario costoso per tutti, ma non catastrofico.</p>
+
+    <p>Nel terzo scenario, l'escalation continua senza controllo, le ritorsioni si moltiplicano, le alleanze si sfaldano e il sistema economico internazionale entra in una crisi profonda, con conseguenze imprevedibili per la stabilità politica e sociale di molti paesi.</p>
+
+    <p>Quale scenario prevarrà dipenderà dalla saggezza — o dalla mancanza di saggezza — dei leader politici delle grandi potenze. Una cosa, però, è certa: il mondo di ieri, fatto di catene produttive globali indisturbate e di scambi senza frontiere, non tornerà più. E l'Italia, come tutta l'Europa, dovrà imparare a navigare in acque molto più agitate, con una bussola propria e una strategia chiara. O rischierà di essere trascinata dalla corrente, senza mai scegliere davvero la propria rotta.</p>
+  </div>
+
+  <div class="article-footer">
+    <a href="index.html" class="back-link">Torna alla home</a>
+    <span class="share-label">Il Meridiano © 2025</span>
+  </div>
+</article>
+
+<div class="related">
+  <h3>Altri articoli</h3>
+  <div class="related-grid">
+    <div class="related-card">
+      <div class="r-cat">Politica Italiana</div>
+      <div class="r-title">Governo Meloni a metà mandato: bilancio e prospettive</div>
+    </div>
+    <div class="related-card">
+      <div class="r-cat">Storia Politica</div>
+      <div class="r-title">Tangentopoli trent'anni dopo: cosa rimane di Mani Pulite</div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const d = new Date();
+  const giorni = ['Domenica','Lunedì','Martedì','Mercoledì','Giovedì','Venerdì','Sabato'];
+  const mesi = ['Gennaio','Febbraio','Marzo','Aprile','Maggio','Giugno','Luglio','Agosto','Settembre','Ottobre','Novembre','Dicembre'];
+  document.getElementById('current-date').textContent =
+    `${giorni[d.getDay()]}, ${d.getDate()} ${mesi[d.getMonth()]} ${d.getFullYear()}`;
+
+  // Animate on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }, i * 80);
+      }
+    });
+  }, { threshold: 0.05 });
+
+  document.querySelectorAll('.article-body > *').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(15px)';
+    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    observer.observe(el);
+  });
+</script>
+</body>
+</html>

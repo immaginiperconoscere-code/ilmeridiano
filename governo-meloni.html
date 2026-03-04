@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Governo Meloni a metà mandato — Il Meridiano</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=IBM+Plex+Sans:wght@300;400;500&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+:root{--nero:#0a0a0a;--bianco:#f5f0e8;--rosso:#c0392b;--oro:#b8960c;--grigio-chiaro:#888;--serif:"Playfair Display",Georgia,serif;--sans:"IBM Plex Sans",sans-serif;--mono:"IBM Plex Mono",monospace}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--nero);color:var(--bianco);font-family:var(--sans);font-size:16px;line-height:1.6;overflow-x:hidden}
+header{border-bottom:1px solid #333;padding:0 2rem;position:sticky;top:0;background:rgba(10,10,10,.95);backdrop-filter:blur(10px);z-index:100}
+.header-top{display:flex;justify-content:space-between;align-items:center;padding:.5rem 0;border-bottom:1px solid #222}
+.header-date{font-family:var(--mono);font-size:.7rem;color:var(--grigio-chiaro);letter-spacing:.1em;text-transform:uppercase}
+.header-tagline{font-family:var(--mono);font-size:.7rem;color:var(--oro);letter-spacing:.1em}
+.header-main{display:flex;justify-content:space-between;align-items:center;padding:1rem 0}
+.logo{font-family:var(--serif);font-size:2.2rem;font-weight:900;color:var(--bianco);text-decoration:none;line-height:1}
+.logo span{color:var(--rosso)}
+nav{display:flex;gap:2rem}
+nav a{font-family:var(--sans);font-size:.8rem;font-weight:500;text-transform:uppercase;letter-spacing:.12em;color:var(--grigio-chiaro);text-decoration:none;transition:color .2s}
+nav a:hover{color:var(--bianco)}
+.article-wrapper{max-width:780px;margin:0 auto;padding:4rem 2rem 6rem}
+.article-category{font-family:var(--mono);font-size:.72rem;color:var(--rosso);text-transform:uppercase;letter-spacing:.2em;margin-bottom:1.2rem;display:flex;align-items:center;gap:.8rem}
+.article-category::before{content:"";display:block;width:30px;height:1px;background:var(--rosso)}
+.article-title{font-family:var(--serif);font-size:clamp(2rem,4vw,3.2rem);font-weight:900;line-height:1.1;letter-spacing:-.02em;margin-bottom:1.5rem}
+.article-meta{display:flex;align-items:center;gap:1.5rem;font-family:var(--mono);font-size:.72rem;color:var(--grigio-chiaro);padding:1.2rem 0;border-top:1px solid #222;border-bottom:1px solid #222;margin-top:1.5rem}
+.meta-author{color:var(--bianco)}
+.meta-dot{width:3px;height:3px;background:#444;border-radius:50%}
+.article-body{margin-top:2.5rem}
+.article-body p{font-size:1.05rem;line-height:1.85;color:#ccc;margin-bottom:1.6rem;font-weight:300}
+.article-body h2{font-family:var(--serif);font-size:1.6rem;font-weight:700;color:var(--bianco);margin:3rem 0 1.2rem;padding-left:1rem;border-left:3px solid var(--rosso)}
+.intro{font-size:1.2rem!important;color:#ddd!important;font-weight:400!important;line-height:1.7!important;border-left:3px solid var(--oro);padding-left:1.5rem;margin-bottom:2.5rem}
+.pull-quote{margin:3rem 0;padding:2rem 2.5rem;border-top:1px solid #444;border-bottom:1px solid #444}
+.pull-quote p{font-family:var(--serif);font-size:1.4rem!important;font-style:italic;color:var(--bianco)!important;font-weight:400!important;line-height:1.5!important;margin:0!important}
+.article-footer{margin-top:4rem;padding-top:2rem;border-top:1px solid #333;display:flex;justify-content:space-between;align-items:center}
+.back-link{font-family:var(--sans);font-size:.8rem;font-weight:500;text-transform:uppercase;letter-spacing:.12em;color:var(--grigio-chiaro);text-decoration:none}
+.back-link::before{content:"← "}
+.back-link:hover{color:var(--bianco)}
+.share-label{font-family:var(--mono);font-size:.72rem;color:var(--grigio-chiaro)}
+.related{max-width:780px;margin:0 auto;padding:3rem 2rem 6rem;border-top:1px solid #222}
+.related h3{font-family:var(--mono);font-size:.72rem;text-transform:uppercase;letter-spacing:.2em;color:var(--grigio-chiaro);margin-bottom:2rem}
+.related-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem}
+.related-card{padding-bottom:1.5rem;border-bottom:1px solid #222}
+.r-cat{font-family:var(--mono);font-size:.65rem;text-transform:uppercase;letter-spacing:.15em;color:var(--rosso);margin-bottom:.5rem}
+.r-title{font-family:var(--serif);font-size:1.1rem;font-weight:700;line-height:1.3}
+@media(max-width:768px){nav{display:none}.related-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header>
+<div class="header-top"><span class="header-date" id="current-date"></span><span class="header-tagline">Analisi · Approfondimento · Indipendenza</span></div>
+<div class="header-main"><a href="index.html" class="logo">Il <span>Meridiano</span></a><nav><a href="index.html">Home</a><a href="#">Politica</a><a href="#">Storia</a><a href="#">Geopolitica</a><a href="#">Cronaca</a><a href="#">Chi siamo</a></nav></div>
+</header>
+<article class="article-wrapper">
+<div class="article-header">
+<div class="article-category">Politica Italiana</div>
+<h1 class="article-title">Governo Meloni a metà mandato: bilancio e prospettive</h1>
+<div class="article-meta"><span class="meta-author">La Redazione</span><span class="meta-dot"></span><span>12 Febbraio 2025</span><span class="meta-dot"></span><span>16 min lettura</span></div>
+</div>
+<div class="article-body">
+<p class="intro">A metà del suo mandato quinquennale, il governo guidato da Giorgia Meloni si trova a un bivio. I risultati ottenuti e le promesse mancate disegnano il profilo di un'esperienza di governo complessa, che ha dovuto fare i conti con la durezza della realtà economica e le contraddizioni di una coalizione non sempre coesa.</p>
+
+<h2>L'arrivo al potere e le aspettative</h2>
+<p>Quando il 22 ottobre 2022 Giorgia Meloni giurava come Presidente del Consiglio, diventando la prima donna nella storia repubblicana a ricoprire quell'incarico, le aspettative erano polarizzate. Per i sostenitori, era l'inizio di una svolta conservatrice attesa da decenni. Per i critici, era l'avanzata di una destra che non aveva ancora fatto i conti con la propria storia. La realtà, come sempre accade, si è rivelata più sfumata di entrambe le proiezioni.</p>
+<p>Il governo si è insediato in un momento difficile: guerra in Ucraina, crisi energetica, inflazione in risalita e i primi segnali di rallentamento dell'economia dopo il rimbalzo post-pandemia. Governare in queste condizioni avrebbe messo a dura prova qualsiasi esecutivo, di qualsiasi colore politico.</p>
+
+<h2>La politica economica: tra vincoli e ambizioni</h2>
+<p>Sul fronte economico, il governo Meloni ha dovuto subito fare i conti con i vincoli imposti dai mercati finanziari e dalle istituzioni europee. Le promesse elettorali più ambiziose — dalla flat tax estesa a tutta la popolazione alla revisione del reddito di cittadinanza — si sono scontrate con la necessità di mantenere i conti pubblici sotto controllo per non finire nel mirino della speculazione finanziaria.</p>
+<p>La flat tax è rimasta confinata ai lavoratori autonomi con redditi sotto una certa soglia, ben lontana dall'estensione universale promessa in campagna elettorale. Il reddito di cittadinanza è stato abolito e sostituito con misure più selettive, ma il dibattito sui risultati di questa scelta è ancora aperto, con dati contrastanti sull'effettivo impatto occupazionale.</p>
+<p>Sul fronte della crescita, l'Italia ha mostrato una certa resilienza, ma i fondamentali restano fragili: il debito pubblico rimane tra i più alti d'Europa, la produttività cresce a ritmi insufficienti e il divario Nord-Sud non accenna a ridursi. Il Piano Nazionale di Ripresa e Resilienza, ereditato dal governo Draghi, ha proceduto tra accelerazioni e ritardi, con alcune scadenze mancate che hanno creato tensioni con Bruxelles.</p>
+
+<div class="pull-quote"><p>Le promesse elettorali più ambiziose si sono scontrate con la necessità di mantenere i conti pubblici sotto controllo: una dinamica che accomuna quasi tutti i governi della Repubblica.</p></div>
+
+<h2>La politica estera: atlantismo e ambiguità</h2>
+<p>Sul fronte della politica estera, il governo Meloni ha sorpreso molti osservatori, adottando una linea nettamente atlantista che ha dissipato i timori di chi temeva un avvicinamento all'orbita russo-putiniana. Il sostegno all'Ucraina è stato costante e il rapporto con gli alleati NATO solido, tanto da guadagnare a Meloni una credibilità internazionale che i suoi avversari interni faticano ad ammettere.</p>
+<p>Più ambigua la posizione verso le istituzioni europee. Il governo ha alternato momenti di conflitto aperto — sui migranti, sul Green Deal, sui meccanismi di solidarietà — a fasi di collaborazione pragmatica. Il risultato è un'Italia che conta di più a Bruxelles rispetto al passato, ma che non ha ancora trovato una strategia coerente per massimizzare il proprio peso nelle grandi decisioni comunitarie.</p>
+
+<h2>Il nodo immigrazione</h2>
+<p>L'immigrazione è stata il terreno su cui il governo ha investito maggiore energia politica e simbolica, senza tuttavia ottenere i risultati sperati. I flussi di arrivi via mare sono rimasti sostenuti, nonostante gli accordi con i paesi di transito e le operazioni di controllo nel Mediterraneo. La politica dei respingimenti e degli accordi con la Libia ha sollevato pesanti critiche da parte delle organizzazioni umanitarie internazionali.</p>
+<p>Il caso più emblematico è stato il controverso accordo con l'Albania per la gestione dei richiedenti asilo: un progetto ambizioso, finito nel mirino della magistratura e oggetto di un lungo braccio di ferro istituzionale che ha messo in luce le tensioni tra potere esecutivo e potere giudiziario.</p>
+
+<h2>La coalizione e le tensioni interne</h2>
+<p>Sul piano della tenuta della coalizione, il governo ha dimostrato una solidità maggiore delle previsioni. Fratelli d'Italia, Lega e Forza Italia hanno mantenuto un'unità di facciata, nonostante le divergenze su molti temi — dall'Europa alla politica fiscale, dalla giustizia alla gestione dell'ordine pubblico.</p>
+<p>La morte di Silvio Berlusconi nell'estate del 2023 ha aperto una fase di ridefinizione degli equilibri interni a Forza Italia, con il partito che cerca di trovare una nuova identità sotto la guida di Antonio Tajani. La Lega di Salvini, uscita indebolita dalle elezioni del 2022, ha cercato di recuperare consensi su temi identitari, non sempre in sintonia con la linea governativa.</p>
+
+<h2>Prospettive per la seconda metà del mandato</h2>
+<p>Guardando ai prossimi due anni e mezzo, le sfide che attendono il governo Meloni sono enormi. Sul piano economico, dovrà trovare le risorse per onorare almeno in parte le promesse fatte agli elettori, senza compromettere la sostenibilità del debito. Sul piano europeo, dovrà negoziare le nuove regole di governance economica e posizionarsi rispetto alle grandi scelte strategiche dell'Unione — difesa, energia, tecnologia — che richiederanno investimenti massicci.</p>
+<p>Sul piano interno, la riforma costituzionale sul premierato — la proposta di elezione diretta del presidente del Consiglio — è destinata a tenere banco nel dibattito politico, con esiti incerti tanto sul piano parlamentare quanto su quello referendario. Si tratta di una riforma che tocca le fondamenta dell'architettura istituzionale nata dalla Costituente, e che divide non solo i partiti ma anche i costituzionalisti.</p>
+<p>Il giudizio sulla prima metà del mandato Meloni resta sospeso tra chi vede un governo che ha garantito stabilità in un momento difficile e chi ritiene che siano state sprecate opportunità importanti di riforma strutturale. La verità, probabilmente, sta nel mezzo: un governo che ha governato senza grandi scossoni ma anche senza grandi visioni, in attesa di capire quale sarà la sua eredità duratura.</p>
+</div>
+<div class="article-footer"><a href="index.html" class="back-link">Torna alla home</a><span class="share-label">Il Meridiano © 2025</span></div>
+</article>
+<div class="related"><h3>Altri articoli</h3><div class="related-grid"><div class="related-card"><div class="r-cat">Politica Italiana</div><div class="r-title">I populismi europei di fronte alla prova del governo</div></div><div class="related-card"><div class="r-cat">Cronaca</div><div class="r-title">Autonomia differenziata: la Corte Costituzionale e il nodo irrisolto</div></div></div></div>
+<script>
+const d=new Date();const giorni=["Domenica","Lunedì","Martedì","Mercoledì","Giovedì","Venerdì","Sabato"];const mesi=["Gennaio","Febbraio","Marzo","Aprile","Maggio","Giugno","Luglio","Agosto","Settembre","Ottobre","Novembre","Dicembre"];document.getElementById("current-date").textContent=`${giorni[d.getDay()]}, ${d.getDate()} ${mesi[d.getMonth()]} ${d.getFullYear()}`;
+</script>
+</body>
+</html>
