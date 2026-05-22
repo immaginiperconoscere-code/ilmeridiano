@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ImmaginiXconoscere — Politica, Storia, Geopolitica</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --nero: #0a0a0a;
+    --oro: #c9a84c;
+    --rosso: #c0392b;
+    --bianco: #f0ece4;
+    --grigio: #888;
+    --politica: #c0392b;
+    --storia: #c9a84c;
+    --geopolitica: #2980b9;
+    --cronaca: #27ae60;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--nero);
+    color: var(--bianco);
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.6;
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  .topbar {
+    background: #111;
+    border-bottom: 1px solid #1e1e1e;
+    padding: 8px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .topbar-left { font-size: 11px; letter-spacing: 1.5px; color: var(--grigio); }
+  .topbar-right { font-size: 11px; letter-spacing: 1.5px; color: var(--grigio); }
+  .topbar-right span { color: var(--oro); }
+
+  header { padding: 0 40px; border-bottom: 1px solid #1e1e1e; }
+
+  .header-main { text-align: center; padding: 44px 0 28px; }
+
+  .site-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 72px;
+    font-weight: 900;
+    letter-spacing: -2px;
+    color: var(--bianco);
+    line-height: 1;
+  }
+  .site-name .nome-fine { color: var(--bianco); }
+
+  .oro-line {
+    display: block;
+    width: 80px;
+    height: 2px;
+    background: var(--oro);
+    margin: 14px auto 14px;
+  }
+
+  .site-subtitle { font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--grigio); }
+
+  nav {
+    display: flex;
+    justify-content: center;
+    gap: 44px;
+    padding: 18px 0;
+    border-top: 1px solid #1a1a1a;
+    margin-top: 10px;
+  }
+  nav a { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--grigio); font-weight: 500; transition: color 0.2s; }
+  nav a:hover { color: var(--oro); }
+
+  .divider { height: 3px; background: linear-gradient(to right, var(--rosso), var(--oro)); margin: 0 40px; }
+
+  .hero {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 0;
+    margin: 0 40px;
+    border-bottom: 1px solid #1e1e1e;
+  }
+
+  .hero-main { padding: 50px 50px 50px 0; border-right: 1px solid #1e1e1e; }
+
+  .article-category {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-bottom: 16px;
+    display: inline-block;
+  }
+  .cat-politica { color: var(--politica); }
+  .cat-storia { color: var(--storia); }
+  .cat-geopolitica { color: var(--geopolitica); }
+  .cat-cronaca { color: var(--cronaca); }
+  .cat-espanol { color: #e67e22; }
+
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 20px;
+    color: var(--bianco);
+  }
+  .hero-excerpt { font-size: 15px; line-height: 1.85; color: #aaa; margin-bottom: 26px; }
+
+  .read-more {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--oro);
+    border-bottom: 1px solid var(--oro);
+    padding-bottom: 2px;
+    transition: color 0.2s;
+  }
+
+  .hero-sidebar {
+    padding: 50px 0 50px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .sidebar-article { border-bottom: 1px solid #1a1a1a; padding-bottom: 26px; }
+  .sidebar-article:last-child { border-bottom: none; padding-bottom: 0; }
+
+  .sidebar-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    line-height: 1.35;
+    margin: 8px 0 8px;
+    color: var(--bianco);
+  }
+  .sidebar-excerpt { font-size: 13px; color: #666; line-height: 1.6; }
+
+  .section-label { font-size: 10px; letter-spacing: 4px; text-transform: uppercase; color: var(--oro); padding: 40px 40px 0; }
+
+  .articles-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: #1a1a1a;
+    margin: 24px 40px 0;
+  }
+
+  .article-card { background: var(--nero); padding: 30px; transition: background 0.2s; }
+  .article-card:hover { background: #0f0f0f; }
+
+  .article-card.featured-es {
+    border-top: 2px solid #e67e22;
+  }
+
+  .article-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    line-height: 1.35;
+    margin: 10px 0 12px;
+    color: var(--bianco);
+  }
+  .article-excerpt { font-size: 13px; color: #666; line-height: 1.6; margin-bottom: 16px; }
+
+  .lang-badge {
+    display: inline-block;
+    font-size: 9px;
+    letter-spacing: 2px;
+    background: #e67e22;
+    color: #fff;
+    padding: 2px 7px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+  }
+
+  footer { border-top: 1px solid #1a1a1a; margin-top: 60px; padding: 40px; text-align: center; }
+  .footer-name { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; color: var(--bianco); margin-bottom: 10px; }
+  .footer-name span { color: var(--oro); }
+  .footer-text { font-size: 12px; color: #333; letter-spacing: 1px; }
+
+  @media (max-width: 768px) {
+    .hero { grid-template-columns: 1fr; margin: 0 20px; }
+    .hero-main { padding: 30px 0; border-right: none; border-bottom: 1px solid #1e1e1e; }
+    .hero-sidebar { padding: 30px 0; }
+    .articles-grid { grid-template-columns: 1fr; margin: 20px 20px 0; }
+    .topbar { padding: 8px 20px; }
+    header { padding: 0 20px; }
+    .site-name { font-size: 42px; }
+    .divider { margin: 0 20px; }
+    .section-label { padding: 30px 20px 0; }
+    footer { padding: 30px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <span class="topbar-left">Domenica, 8 Marzo 2026</span>
+  <span class="topbar-right">Facebook · Instagram · <span>@immaginixconoscere</span></span>
+</div>
+
+<header>
+  <div class="header-main">
+    <h1 class="site-name">Immagini<span class="logo-x">✕</span><span class="nome-fine">conoscere</span></h1>
+    <span class="oro-line"></span>
+    <p class="site-subtitle">Analisi · Politica · Storia · Geopolitica</p>
+  </div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="#">Politica</a>
+    <a href="#">Storia</a>
+    <a href="#">Geopolitica</a>
+    <a href="#">Cronaca</a>
+  </nav>
+</header>
+
+<div class="divider"></div>
+
+<div class="hero">
+  <div class="hero-main">
+    <span class="article-category cat-geopolitica">Geopolitica · Inchiesta Esclusiva</span>
+    <h2 class="hero-title">Il passaporto italiano di Petro: un documento, troppe domande</h2>
+    <p class="hero-excerpt">
+      Un ex guerrigliero dell'M-19, presidente della Colombia, con un passaporto italiano. Come lo ha ottenuto? Quando? E chi ha istruito la pratica in un comune irpino di milleduecento abitanti? Le domande che nessuno ha ancora risposto.
+    </p>
+    <a href="petro, pronto_passaporto_FINALE-1.html" class="read-more">Continua a leggere</a>
+  </div>
+
+  <div class="hero-sidebar">
+    <div class="sidebar-article">
+      <span class="article-category cat-espanol">🇪🇸 En Español</span>
+      <h3 class="sidebar-title"><a href="petro_es_DEFINITIVO.html">Petro y el Pasaporte Italiano — Investigación exclusiva</a></h3>
+      <p class="sidebar-excerpt">La versión en español de nuestra investigación. Para lectores colombianos y latinoamericanos.</p>
+      <br><a href="petro_es_DEFINITIVO.html" class="read-more">Leer en español</a>
+    </div>
+    <div class="sidebar-article">
+      <span class="article-category cat-politica">Politica</span>
+      <h3 class="sidebar-title">Governo Meloni a metà mandato: il bilancio</h3>
+      <p class="sidebar-excerpt">Due anni di governo tra promesse mantenute e occasioni mancate.</p>
+    </div>
+    <div class="sidebar-article">
+      <span class="article-category cat-storia">Storia</span>
+      <h3 class="sidebar-title">De Gasperi e Togliatti: i padri dimenticati</h3>
+      <p class="sidebar-excerpt">Il confronto tra i due giganti della Prima Repubblica e la loro eredità.</p>
+    </div>
+  </div>
+</div>
+
+<p class="section-label">— Ultimi articoli</p>
+<div class="articles-grid">
+
+  <div class="article-card featured-es">
+    <div class="lang-badge">🇪🇸 Investigación en Español</div>
+    <span class="article-category cat-espanol">Geopolítica · Exclusiva</span>
+    <h3 class="article-title"><a href="petro_es_DEFINITIVO.html">Petro y el Pasaporte Italiano: un documento, demasiadas preguntas</a></h3>
+    <p class="article-excerpt">La investigación exclusiva de IXC para lectores colombianos y latinoamericanos. El exguerrillero, la ciudadanía italiana y las preguntas sin respuesta.</p>
+    <a href="petro_es_DEFINITIVO.html" class="read-more">Leer investigación</a>
+  </div>
+
+  <div class="article-card">
+    <span class="article-category cat-politica">Politica</span>
+    <h3 class="article-title"><a href="pd-identita.html">Il PD alla ricerca di una nuova identità</a></h3>
+    <p class="article-excerpt">Schlein tenta di ricostruire il centrosinistra su basi nuove. Ma le contraddizioni interne restano.</p>
+    <a href="pd-identita.html" class="read-more">Leggi</a>
+  </div>
+
+  <div class="article-card">
+    <span class="article-category cat-geopolitica">Geopolitica</span>
+    <h3 class="article-title"><a href="mediterraneo.html">Il Mediterraneo epicentro delle tensioni globali</a></h3>
+    <p class="article-excerpt">Dal conflitto libico alle rotte migratorie, il mare nostrum torna al centro della politica internazionale.</p>
+    <a href="mediterraneo.html" class="read-more">Leggi</a>
+  </div>
+
+  <div class="article-card">
+    <span class="article-category cat-storia">Storia</span>
+    <h3 class="article-title"><a href="tangentopoli.html">Tangentopoli trent'anni dopo</a></h3>
+    <p class="article-excerpt">Cosa rimane dell'inchiesta che spazzò via la Prima Repubblica. Le lezioni non apprese.</p>
+    <a href="tangentopoli.html" class="read-more">Leggi</a>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-name">Immagini<span>✕</span>conoscere</div>
+  <p class="footer-text">© 2026 ImmaginiXconoscere · Analisi · Politica · Storia · Geopolitica</p>
+</footer>
+
+</body>
+</html>
