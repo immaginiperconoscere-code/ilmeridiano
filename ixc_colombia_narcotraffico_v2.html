@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elezioni in Colombia e Narcotraffico – IXC Inchiesta</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;600;700;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black:  #090909;
+    --yellow: #F5C518;
+    --red:    #CC0000;
+    --red2:   #FF0000;
+    --white:  #efefef;
+    --gray1:  #111111;
+    --gray2:  #1c1c1c;
+    --gray3:  #272727;
+    --gray4:  #333333;
+    --muted:  #777777;
+    --body:   #c8c8c8;
+  }
+
+  *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'Barlow', sans-serif;
+    font-size: 17px;
+    line-height: 1.78;
+  }
+
+  /* ═══════════════════════════════════
+     HEADER
+  ═══════════════════════════════════ */
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--black);
+    border-bottom: 3px solid var(--yellow);
+    padding: 0 40px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .logo {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 20px;
+    letter-spacing: 3px;
+    color: var(--yellow);
+    text-transform: uppercase;
+  }
+  .logo span { color: var(--white); }
+  .header-tag {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+
+  /* ═══════════════════════════════════
+     TICKER
+  ═══════════════════════════════════ */
+  .ticker-wrap {
+    background: var(--red);
+    overflow: hidden;
+    white-space: nowrap;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #aa0000;
+  }
+  .ticker-badge {
+    flex-shrink: 0;
+    background: var(--yellow);
+    color: var(--black);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 11px;
+    letter-spacing: 3px;
+    padding: 0 14px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+  }
+  .ticker-track {
+    display: flex;
+    animation: scroll-ticker 38s linear infinite;
+  }
+  .ticker-content {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: var(--white);
+    text-transform: uppercase;
+    padding: 0 60px 0 20px;
+    white-space: nowrap;
+  }
+  @keyframes scroll-ticker {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  /* ═══════════════════════════════════
+     HERO
+  ═══════════════════════════════════ */
+  .hero {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 64px 40px 52px;
+    border-bottom: 1px solid var(--gray3);
+  }
+  .hero-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 26px;
+  }
+  .hero-label .badge {
+    background: var(--red);
+    color: var(--white);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 3px;
+    padding: 4px 12px;
+    text-transform: uppercase;
+  }
+  .hero-label .line {
+    width: 40px;
+    height: 2px;
+    background: var(--yellow);
+  }
+  .hero-label .cat {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--yellow);
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  .hero h1 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: clamp(38px, 7vw, 68px);
+    line-height: 1.02;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--white);
+    margin-bottom: 22px;
+  }
+  .hero h1 .accent { color: var(--yellow); }
+  .hero h1 .red    { color: var(--red); }
+  .hero .deck {
+    font-size: 18px;
+    font-weight: 300;
+    color: #aaa;
+    max-width: 720px;
+    line-height: 1.65;
+    margin-bottom: 30px;
+  }
+  .hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    border-top: 1px solid var(--gray3);
+    padding-top: 18px;
+  }
+  .hero-meta strong { color: var(--yellow); margin-right: 4px; }
+  .watermark-inline {
+    margin-top: 2px;
+    border: 1px solid var(--gray3);
+    padding: 3px 10px;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--gray4);
+  }
+
+  /* ═══════════════════════════════════
+     LAYOUT
+  ═══════════════════════════════════ */
+  .content {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 40px 80px;
+  }
+
+  /* ═══════════════════════════════════
+     SECTION HEADER
+  ═══════════════════════════════════ */
+  .section-head {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+    margin: 60px 0 24px;
+  }
+  .section-head .bar {
+    width: 5px;
+    background: var(--red);
+    flex-shrink: 0;
+  }
+  .section-head h2 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 24px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--yellow);
+    padding-left: 16px;
+    line-height: 1.15;
+  }
+
+  /* ═══════════════════════════════════
+     BODY TEXT
+  ═══════════════════════════════════ */
+  .prose p {
+    color: var(--body);
+    margin-bottom: 20px;
+    line-height: 1.78;
+  }
+  .prose p strong, .prose strong { color: var(--white); font-weight: 600; }
+  .prose p em { color: var(--yellow); font-style: normal; }
+
+  /* ═══════════════════════════════════
+     PULL QUOTE
+  ═══════════════════════════════════ */
+  .pull-quote {
+    border-left: 5px solid var(--yellow);
+    background: var(--gray2);
+    padding: 22px 28px;
+    margin: 40px 0;
+  }
+  .pull-quote p {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 1.35;
+    color: var(--white);
+    margin: 0;
+  }
+
+  /* ═══════════════════════════════════
+     STAT ROW
+  ═══════════════════════════════════ */
+  .stat-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin: 36px 0;
+  }
+  .stat-box {
+    background: var(--gray2);
+    border-top: 4px solid var(--yellow);
+    padding: 22px 16px 18px;
+    text-align: center;
+  }
+  .stat-box .num {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 40px;
+    color: var(--yellow);
+    line-height: 1;
+    display: block;
+  }
+  .stat-box .unit {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: var(--red);
+    text-transform: uppercase;
+    display: block;
+    margin: 6px 0 5px;
+  }
+  .stat-box .lbl {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.45;
+  }
+  .stat-box.red-top { border-top-color: var(--red); }
+
+  /* ═══════════════════════════════════
+     GROWTH HIGHLIGHT BOX
+  ═══════════════════════════════════ */
+  .growth-box {
+    background: linear-gradient(135deg, #1a0000 0%, var(--gray2) 100%);
+    border: 1px solid var(--red);
+    border-left: 5px solid var(--red);
+    padding: 24px 28px;
+    margin: 28px 0;
+    display: flex;
+    align-items: center;
+    gap: 28px;
+  }
+  .growth-box .big-num {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 64px;
+    color: var(--red);
+    line-height: 1;
+    flex-shrink: 0;
+  }
+  .growth-box .desc { }
+  .growth-box .desc strong {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 18px;
+    color: var(--white);
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .growth-box .desc p {
+    font-size: 14px;
+    color: var(--muted);
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  /* ═══════════════════════════════════
+     DATA TABLE
+  ═══════════════════════════════════ */
+  .table-wrap {
+    overflow-x: auto;
+    margin: 28px 0 8px;
+    border: 1px solid var(--gray3);
+  }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  thead tr { background: var(--yellow); }
+  thead th {
+    color: var(--black);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 11px 14px;
+    text-align: left;
+  }
+  tbody tr { border-bottom: 1px solid var(--gray3); }
+  tbody tr:nth-child(even) { background: var(--gray2); }
+  tbody tr:nth-child(odd)  { background: var(--gray1); }
+  tbody td { padding: 10px 14px; color: var(--body); vertical-align: middle; }
+  tbody td:first-child {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 17px;
+    color: var(--white);
+  }
+  .hl { color: var(--yellow) !important; font-weight: 600; }
+  .hl-red { color: var(--red) !important; font-weight: 600; }
+  .table-note {
+    font-size: 12px;
+    color: var(--muted);
+    text-align: center;
+    margin-bottom: 28px;
+    font-style: italic;
+  }
+
+  /* ═══════════════════════════════════
+     ALERT BOX
+  ═══════════════════════════════════ */
+  .alert {
+    background: rgba(204,0,0,.1);
+    border: 1px solid var(--red);
+    border-left: 5px solid var(--red);
+    padding: 22px 26px;
+    margin: 32px 0;
+  }
+  .alert-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 13px;
+    letter-spacing: 3px;
+    color: var(--red);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .alert p { font-size: 15px; color: #bbb; margin: 0; line-height: 1.6; }
+  .alert p strong { color: var(--white); }
+
+  /* ═══════════════════════════════════
+     CARDS SECTION (full-bleed)
+  ═══════════════════════════════════ */
+  .cards-section {
+    background: var(--gray1);
+    border-top: 4px solid var(--yellow);
+    border-bottom: 4px solid var(--yellow);
+    padding: 60px 40px;
+    margin: 60px -40px;
+  }
+  .cards-section-header {
+    text-align: center;
+    margin-bottom: 44px;
+  }
+  .cards-section-header h3 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 30px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--white);
+    margin-bottom: 6px;
+  }
+  .cards-section-header p {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px;
+    letter-spacing: 3px;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+
+  /* FLOW DIAGRAM */
+  .flow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    max-width: 880px;
+    margin: 0 auto 52px;
+    flex-wrap: wrap;
+  }
+  .flow-node {
+    background: var(--gray2);
+    border: 1px solid var(--gray3);
+    border-top: 3px solid var(--yellow);
+    padding: 18px 16px;
+    flex: 1;
+    min-width: 130px;
+    max-width: 180px;
+  }
+  .flow-node.red-node { border-top-color: var(--red); }
+  .flow-node .icon { font-size: 22px; display: block; margin-bottom: 8px; }
+  .flow-node .fn-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--white);
+    margin-bottom: 5px;
+  }
+  .flow-node .fn-desc { font-size: 12px; color: var(--muted); line-height: 1.45; }
+  .flow-arrow {
+    font-size: 22px;
+    color: var(--yellow);
+    padding: 0 6px;
+    flex-shrink: 0;
+    font-weight: 900;
+    font-family: 'Barlow Condensed', sans-serif;
+  }
+
+  /* INFO CARDS GRID */
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    max-width: 880px;
+    margin: 0 auto;
+  }
+  .card {
+    background: var(--black);
+    border: 1px solid var(--gray3);
+    padding: 26px 22px;
+    position: relative;
+    overflow: hidden;
+    transition: border-color .2s;
+  }
+  .card:hover { border-color: var(--yellow); }
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+  }
+  .card.cy::before  { background: var(--yellow); }
+  .card.cr::before  { background: var(--red); }
+  .card.cg::before  { background: var(--gray4); }
+  .card .clabel {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    display: block;
+  }
+  .card.cy .clabel { color: var(--yellow); }
+  .card.cr .clabel { color: var(--red); }
+  .card.cg .clabel { color: var(--muted); }
+  .card .ctitle {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    color: var(--white);
+    line-height: 1.15;
+    margin-bottom: 10px;
+  }
+  .card .cbody { font-size: 13px; color: #888; line-height: 1.6; }
+  .card .cbody strong { color: var(--white); }
+
+  /* ═══════════════════════════════════
+     SILENCE GRID
+  ═══════════════════════════════════ */
+  .silence-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 28px 0;
+  }
+  .sitem {
+    background: var(--gray2);
+    border-left: 3px solid var(--red);
+    padding: 18px 20px;
+  }
+  .sitem .st {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--white);
+    margin-bottom: 7px;
+  }
+  .sitem p { font-size: 14px; color: #888; margin: 0; line-height: 1.55; }
+
+  /* ═══════════════════════════════════
+     BANK BOX
+  ═══════════════════════════════════ */
+  .bank-box {
+    background: var(--gray2);
+    border: 1px solid var(--gray3);
+    border-left: 5px solid var(--yellow);
+    padding: 26px 28px;
+    margin: 32px 0;
+  }
+  .bank-box .bank-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 16px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--yellow);
+    margin-bottom: 14px;
+  }
+  .bank-box p { font-size: 15px; color: var(--body); margin-bottom: 10px; line-height: 1.6; }
+  .bank-box p:last-child { margin-bottom: 0; }
+  .bank-box strong { color: var(--white); }
+
+  /* ═══════════════════════════════════
+     SCENARIO BOX
+  ═══════════════════════════════════ */
+  .scenario {
+    background: var(--gray2);
+    border: 1px solid var(--gray3);
+    border-top: 4px solid var(--red);
+    padding: 28px;
+    margin: 20px 0;
+  }
+  .scenario .sc-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 18px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 16px;
+  }
+  .scenario ul { list-style: none; }
+  .scenario ul li {
+    font-size: 15px;
+    color: var(--body);
+    padding: 7px 0;
+    border-bottom: 1px solid var(--gray3);
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    line-height: 1.5;
+  }
+  .scenario ul li:last-child { border: none; }
+  .scenario ul li::before { content: '▸'; color: var(--yellow); flex-shrink: 0; margin-top: 2px; }
+
+  /* ═══════════════════════════════════
+     SOURCES
+  ═══════════════════════════════════ */
+  .sources {
+    background: var(--gray2);
+    border: 1px solid var(--gray3);
+    padding: 24px 28px;
+    margin-top: 60px;
+  }
+  .sources .src-lbl {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .sources p { font-size: 13px; color: #555; line-height: 1.8; margin: 0; }
+
+  /* ═══════════════════════════════════
+     FOOTER
+  ═══════════════════════════════════ */
+  .site-footer {
+    background: var(--black);
+    border-top: 3px solid var(--yellow);
+    padding: 32px 40px;
+    text-align: center;
+  }
+  .site-footer .fl {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 18px;
+    letter-spacing: 3px;
+    color: var(--yellow);
+    margin-bottom: 8px;
+  }
+  .site-footer p { font-size: 13px; color: var(--muted); }
+
+  hr.div { border: none; border-top: 1px solid var(--gray3); margin: 44px 0; }
+
+  /* ═══════════════════════════════════
+     RESPONSIVE
+  ═══════════════════════════════════ */
+  @media (max-width: 720px) {
+    .site-header  { padding: 0 20px; }
+    .hero         { padding: 40px 20px 36px; }
+    .content      { padding: 0 20px 60px; }
+    .cards-section{ margin: 40px -20px; padding: 40px 20px; }
+    .stat-row     { grid-template-columns: 1fr 1fr; }
+    .cards-grid   { grid-template-columns: 1fr; }
+    .silence-grid { grid-template-columns: 1fr; }
+    .flow         { flex-direction: column; align-items: stretch; }
+    .flow-arrow   { transform: rotate(90deg); text-align: center; }
+    .growth-box   { flex-direction: column; gap: 10px; }
+    .growth-box .big-num { font-size: 48px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="logo">Immagini<span> × </span>Conoscere</div>
+  <div class="header-tag">Giornalismo Investigativo · OSINT · Geopolitica</div>
+</header>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker-badge">Inchiesta IXC</div>
+  <div class="ticker-track">
+    <span class="ticker-content">COLOMBIA 2026: PRODUZIONE COCA AL MASSIMO STORICO &nbsp;·&nbsp; ELEZIONI CHE RIGUARDANO OGNI EUROPEO &nbsp;·&nbsp; "EL ZAR": L'UOMO TRA MEDELLIN, 'NDRANGHETA E MOCRO MAFIA &nbsp;·&nbsp; ANVERSA, ROTTERDAM, GIOIA TAURO: GLI HUB DEL TRAFFICO &nbsp;·&nbsp; MERCOSUR: PIÙ CONTAINER, PIÙ RISCHI &nbsp;·&nbsp; COSTI SOCIALI UE: 50-70 MLD/ANNO &nbsp;·&nbsp; IL PATTO DELLA PICOTA: GIUSTIZIA O IMPUNITÀ? &nbsp;·&nbsp;</span>
+    <span class="ticker-content">COLOMBIA 2026: PRODUZIONE COCA AL MASSIMO STORICO &nbsp;·&nbsp; ELEZIONI CHE RIGUARDANO OGNI EUROPEO &nbsp;·&nbsp; "EL ZAR": L'UOMO TRA MEDELLIN, 'NDRANGHETA E MOCRO MAFIA &nbsp;·&nbsp; ANVERSA, ROTTERDAM, GIOIA TAURO: GLI HUB DEL TRAFFICO &nbsp;·&nbsp; MERCOSUR: PIÙ CONTAINER, PIÙ RISCHI &nbsp;·&nbsp; COSTI SOCIALI UE: 50-70 MLD/ANNO &nbsp;·&nbsp; IL PATTO DELLA PICOTA: GIUSTIZIA O IMPUNITÀ? &nbsp;·&nbsp;</span>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-label">
+    <span class="badge">Inchiesta Esclusiva</span>
+    <span class="line"></span>
+    <span class="cat">Geopolitica · Crimine Organizzato</span>
+  </div>
+  <h1>Elezioni in Colombia<br>e <span class="accent">Narcotraffico:</span><br><span class="red">Perché l'Italia</span><br>Non ne Parla?</h1>
+  <p class="deck">Nel 2026 la Colombia eleggerà il successore di Gustavo Petro. Una decisione che riguarda direttamente l'Europa: la Colombia è il primo produttore mondiale di cocaina, e la quota maggiore di questa produzione è destinata al nostro continente. Eppure il silenzio mediatico è quasi totale.</p>
+  <div class="hero-meta">
+    <span><strong>A cura di</strong> Redazione IXC</span>
+    <span><strong>Data</strong> Maggio 2026</span>
+    <span><strong>Fonti</strong> UNODC · EUDA · Europol · ISS · DEA · Policía Nacional España</span>
+    <span class="watermark-inline">© @immaginixconoscere</span>
+  </div>
+</section>
+
+<!-- CONTENT -->
+<main class="content">
+
+  <!-- ── SEZIONE 1 ── -->
+  <div class="section-head">
+    <div class="bar"></div>
+    <h2>La Colombia: Primo Fornitore di Cocaina per l'Europa</h2>
+  </div>
+  <div class="prose">
+    <p>Quando si parla di minacce alla sicurezza dell'Europa, i media italiani citano la guerra in Ucraina, le tensioni con la Cina, l'instabilità nel Sahel. Quasi nessuno parla della Colombia. Eppure la Colombia è il <strong>primo produttore mondiale di cocaina</strong>, e una quota dominante di questa produzione raggiunge le strade europee: ogni grammo che transita nei porti di Anversa, Rotterdam e Gioia Tauro ha origine quasi certamente lì, in un paese a 9.000 chilometri di distanza che nel 2023 ha prodotto da solo <strong>2.664 tonnellate di cocaina</strong> — il 53% in più rispetto all'anno precedente.</p>
+
+    <p>Nel 2026 la Colombia va alle elezioni presidenziali. Chi governerà Bogotà nei prossimi quattro anni determinerà in modo diretto le politiche di eradicazione della coca, i rapporti con i cartelli, la capacità dello stato di contrastare il narcotraffico. Una scelta politica interna a un paese sudamericano che — attraverso la catena cartelli-'ndrangheta-porti europei — arriva fino alle periferie di Milano, Napoli e Roma.</p>
+  </div>
+
+  <div class="pull-quote">
+    <p>"La Colombia è il primo produttore mondiale di cocaina. La quota maggiore di questa produzione è destinata all'Europa. Eppure in Italia quasi nessuno ne discute."</p>
+  </div>
+
+  <!-- STAT ROW -->
+  <div class="stat-row">
+    <div class="stat-box">
+      <span class="num">2.664</span>
+      <span class="unit">Tonnellate</span>
+      <span class="lbl">Produzione cocaina Colombia 2023 (+53% vs 2022)</span>
+    </div>
+    <div class="stat-box">
+      <span class="num">~280K</span>
+      <span class="unit">Ettari (uff.)</span>
+      <span class="lbl">Coltivazione coca 2025 — stime non ufficiali superano i 300.000</span>
+    </div>
+    <div class="stat-box">
+      <span class="num">419</span>
+      <span class="unit">Tonnellate</span>
+      <span class="lbl">Sequestrate in UE nel 2023 — record storico assoluto</span>
+    </div>
+    <div class="stat-box red-top">
+      <span class="num">50-70</span>
+      <span class="unit">Mld €/anno</span>
+      <span class="lbl">Costi sociali e sanitari indiretti per l'Europa (OCSE + Comm. UE)</span>
+    </div>
+  </div>
+
+  <!-- ── SEZIONE 2 ── -->
+  <div class="section-head">
+    <div class="bar"></div>
+    <h2>I Numeri che Nessuno Ti Ha Mostrato</h2>
+  </div>
+  <div class="prose">
+    <p>I dati dell'UNODC — l'Ufficio ONU per le droghe e il crimine — dipingono un quadro che non lascia spazio all'ottimismo. La coltivazione di coca in Colombia è cresciuta in modo costante e accelerato negli ultimi anni: le <strong>stime ufficiali parlano di circa 280.000 ettari nel 2025</strong>, partendo da 230.000 nel 2022. Va però sottolineato che alcune stime non ufficiali superano i <strong>300.000 ettari</strong>, poiché esistono zone del territorio colombiano non ancora completamente mappate dalle agenzie internazionali. In termini assoluti, stiamo parlando di una superficie pari a quattro volte quella del 2012.</p>
+
+    <p>La produzione segue lo stesso trend esplosivo. Nel 2022 erano 1.738 tonnellate. Nel 2023 già 2.664. Nel 2024 si stimano 3.000 tonnellate. Per il 2025 le proiezioni parlano di <strong>3.000-3.708 tonnellate</strong> — un aumento del 34% in un solo anno. Non si tratta di variazioni statistiche: si tratta di un sistema produttivo in espansione strutturale, cresciuto ininterrottamente per quattro anni.</p>
+  </div>
+
+  <!-- GROWTH BOX -->
+  <div class="growth-box">
+    <div class="big-num">+164%</div>
+    <div class="desc">
+      <strong>Aumento cumulativo della produzione 2021–2025</strong>
+      <p>Da circa 1.400 tonnellate nel 2021 alle stime di 3.000-3.700 tonnellate nel 2025. In quattro anni di governo Petro la produzione colombiana di cocaina è più che raddoppiata, senza che siano state adottate politiche di contrasto realmente efficaci.</p>
+    </div>
+  </div>
+
+  <!-- TABLE -->
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Anno</th>
+          <th>Ettari coltivati</th>
+          <th>Produzione (t)</th>
+          <th>Variazione annua</th>
+          <th>Fonte</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>2021</td>
+          <td>204.000</td>
+          <td>~1.400</td>
+          <td>—</td>
+          <td>UNODC</td>
+        </tr>
+        <tr>
+          <td>2022</td>
+          <td>230.000</td>
+          <td>1.738</td>
+          <td class="hl">+24%</td>
+          <td>UNODC</td>
+        </tr>
+        <tr>
+          <td>2023</td>
+          <td>253.000</td>
+          <td>2.664</td>
+          <td class="hl">+53%</td>
+          <td>UNODC (SIMCI)</td>
+        </tr>
+        <tr>
+          <td>2024</td>
+          <td>260.000+</td>
+          <td>~3.000</td>
+          <td class="hl">+12%</td>
+          <td>UNODC + Gov. CO</td>
+        </tr>
+        <tr>
+          <td>2025</td>
+          <td>~280.000 (uff.) / oltre 300.000 (non uff.)</td>
+          <td>3.000–3.708</td>
+          <td class="hl-red">+34% (stima) / <strong>+164% vs 2021</strong></td>
+          <td>Intelligence + UNODC</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="table-note">Fonte: UNODC – World Drug Report / SIMCI (Sistema Integrado de Monitoreo de Cultivos Ilícitos, Colombia)</p>
+
+  <div class="prose">
+    <p>I sequestri in Europa confermano il quadro: 419 tonnellate intercettate nel 2023, record storico. Dal 2024 i numeri calano leggermente — non perché arriva meno cocaina, ma perché <strong>i cartelli stanno diversificando le rotte</strong> per eludere i controlli, disperdendo i carichi su porti minori e percorsi terrestri alternativi.</p>
+  </div>
+
+  <!-- ── SEZIONE 3: MERCOSUR ── -->
+  <div class="section-head">
+    <div class="bar"></div>
+    <h2>Il Rischio Mercosur: Più Commercio, Più Vettori</h2>
+  </div>
+  <div class="prose">
+    <p>Un elemento rimasto quasi completamente fuori dal dibattito pubblico europeo è il ruolo che l'accordo commerciale UE-Mercosur potrebbe avere nell'amplificare il problema. L'accordo — che include Brasile, Argentina, Uruguay e Paraguay — prevede un significativo aumento dei flussi di container tra Sudamerica ed Europa: le stesse infrastrutture marittime, gli stessi porti, gli stessi corridoi logistici utilizzati dal narcotraffico.</p>
+
+    <p>La logica è diretta: più container legittimi in circolazione significa più rumore di fondo per le agenzie doganali, più opportunità di occultamento, meno capacità di ispezione capillare. Già oggi Anversa e Rotterdam gestiscono volumi tali da rendere impossibile la scansione sistematica di ogni spedizione. <strong>Un incremento dei flussi commerciali post-Mercosur potrebbe tradursi direttamente in maggiori quantità di cocaina non intercettata</strong> che raggiunge le strade europee — non per negligenza delle autorità, ma per pura sopraffazione numerica dei volumi.</p>
+
+    <p>Non si tratta di ipotesi teoriche: è il meccanismo che ha reso Gioia Tauro il porto di riferimento della 'ndrangheta — alto volume di traffico, capacità di ispezione limitata, connivenze consolidate. Il modello si replica ovunque ci sia un'infrastruttura portuale sotto pressione di volumi crescenti.</p>
+  </div>
+
+  <!-- ── SEZIONE 4: LEGAMI ── -->
+  <div class="section-head">
+    <div class="bar"></div>
+    <h2>I Legami Nascosti: Cartelli, 'Ndrangheta e "El Zar"</h2>
+  </div>
+  <div class="prose">
+    <p>I cartelli colombiani non operano in isolamento. Il sistema del narcotraffico verso l'Europa è una struttura a più livelli con ruoli specializzati: produzione in Colombia, trasporto via container, gestione portuale, distribuzione continentale. La <strong>'ndrangheta calabrese</strong> occupa una posizione centrale in questo schema: è l'unica organizzazione mafiosa italiana ad aver costruito joint-venture dirette con i cartelli colombiani, diventando il principale broker europeo della cocaina sudamericana. Controlla il porto di Gioia Tauro come snodo logistico privilegiato e gestisce la distribuzione in larga parte del continente attraverso una rete di cellule presenti in oltre 40 paesi.</p>
+
+    <p>Un caso documentato, accaduto nel <strong>marzo 2024</strong>, ha illuminato la struttura operativa di questo asse criminale con una chiarezza inusuale. Un'operazione congiunta tra la <strong>Polizia Nazionale Spagnola</strong> e la DIPOL colombiana ha portato all'arresto, nella sua villa di lusso in Antioquia, di un trafficante soprannominato <strong>"El Zar"</strong>, 49 anni. La polizia spagnola lo ha definito esplicitamente <em>"direttamente responsabile delle operazioni del Cartello di Medellín in Europa"</em> — il terminale operativo di contatto tra il cartello, la 'ndrangheta e la <strong>Mocro Mafia olandese</strong>: tre organizzazioni su tre continenti coordinate da un unico nodo. Aveva collaborato con il Cartello di Medellín negli anni '80 e '90, era considerato il principale fornitore del cosiddetto <strong>"Pablo Escobar svedese"</strong> (Jonas Sture Falk) e aveva legami diretti con il <strong>Clan del Golfo</strong>, oggi il più grande cartello colombiano operativo. Il mandato d'arresto era stato emesso dalla Spagna per traffico aggravato e appartenenza a organizzazione criminale.</p>
+
+    <p>Sul fronte politico, il presidente Gustavo Petro è sotto indagine da parte di procure federali statunitensi e della DEA per presunti legami con il narcotraffico. Il figlio Nicolás è stato accusato di aver ricevuto fondi da narcos per finanziare la campagna del padre.</p>
+  </div>
+
+</main>
+
+<!-- CARDS SECTION (full bleed) -->
+<section class="cards-section">
+  <div class="cards-section-header">
+    <h3>I Collegamenti: Come Funziona il Sistema</h3>
+    <p>Dalla coltivazione alle strade europee — l'asse criminale documentato</p>
+  </div>
+
+  <!-- FLOW -->
+  <div class="flow">
+    <div class="flow-node">
+      <span class="icon">🌿</span>
+      <div class="fn-title">Cartelli Colombiani</div>
+      <p class="fn-desc">Clan del Golfo, dissidenti FARC. Coltivazione, lavorazione, primo export. Produzione 2025: fino a 3.700 t.</p>
+    </div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-node">
+      <span class="icon">🚢</span>
+      <div class="fn-title">Container via Mare</div>
+      <p class="fn-desc">90% del traffico via container. Frutta, carbone, caffè: qualsiasi merce può nascondere carichi.</p>
+    </div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-node">
+      <span class="icon">⚓</span>
+      <div class="fn-title">Porti Hub UE</div>
+      <p class="fn-desc">Anversa, Rotterdam, Gioia Tauro. Volumi impossibili da ispezionare integralmente.</p>
+    </div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-node red-node">
+      <span class="icon">🤝</span>
+      <div class="fn-title">'Ndrangheta</div>
+      <p class="fn-desc">Joint-venture dirette coi cartelli. Controlla distribuzione europea e gestisce Gioia Tauro.</p>
+    </div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-node red-node">
+      <span class="icon">🏦</span>
+      <div class="fn-title">Riciclaggio</div>
+      <p class="fn-desc">Immobiliare, aziende schermo, istituti bancari. Il denaro rientra nell'economia legale.</p>
+    </div>
+  </div>
+
+  <!-- CARDS GRID -->
+  <div class="cards-grid">
+    <div class="card cr">
+      <span class="clabel">Connessione Criminale — Verificata</span>
+      <div class="ctitle">"El Zar": il Terminale Europeo del Cartello</div>
+      <p class="cbody">Arrestato nel <strong>marzo 2024</strong> in Colombia in operazione congiunta Spagna-DIPOL. La Polizia Nazionale Spagnola lo ha definito <strong>"direttamente responsabile delle operazioni del Cartello di Medellín in Europa"</strong>, nodo operativo tra cartello, 'ndrangheta e Mocro Mafia. Era il principale fornitore del "Pablo Escobar svedese" e aveva legami diretti col Clan del Golfo.</p>
+    </div>
+
+    <div class="card cy">
+      <span class="clabel">Connessione Politica</span>
+      <div class="ctitle">Petro sotto Indagine DEA</div>
+      <p class="cbody">Il presidente Gustavo Petro è sotto indagine da parte di procure federali USA e della DEA per <strong>presunti legami con il narcotraffico</strong>. Il figlio Nicolás è stato accusato di aver ricevuto fondi da narcos per finanziare la campagna del padre. Nel frattempo la produzione di coca è più che raddoppiata.</p>
+    </div>
+
+    <div class="card cg">
+      <span class="clabel">Connessione Economica</span>
+      <div class="ctitle">Gioia Tauro e i Porti dell'Asse</div>
+      <p class="cbody">Anversa, Rotterdam e Gioia Tauro sono i tre hub principali. Nel 2023 la sola Anversa ha intercettato 96 tonnellate. <strong>Il Clan del Golfo ricicla circa 10 miliardi di dollari l'anno</strong> attraverso Colombia e Spagna verso l'Europa, usando società con profilo commerciale reale — non fittizio — per occultare i flussi (Europol).</p>
+    </div>
+
+    <div class="card cy">
+      <span class="clabel">Impatto Italia</span>
+      <div class="ctitle">2,3 Miliardi di Costi Sanitari l'Anno</div>
+      <p class="cbody">Il Ministero della Salute stima <strong>2,3 miliardi di euro annui</strong> di spesa sanitaria per dipendenze. I costi sociali complessivi — criminalità, perdita lavoro, sicurezza — raggiungono i <strong>15-20 miliardi annui</strong> secondo stime ISTAT. La cocaina è la prima causa di accesso al pronto soccorso per intossicazione acuta (27% dei casi, EUDA).</p>
+    </div>
+
+    <div class="card cr">
+      <span class="clabel">Impatto UE</span>
+      <div class="ctitle">1.051 Morti per Cocaina nel 2023</div>
+      <p class="cbody">I decessi per overdose da cocaina in UE nel 2023 sono stati <strong>1.051 — il 26% di tutti i decessi da overdose</strong>. I costi sanitari legati a dipendenza e malattie psichiatriche associate ammontano a <strong>30-37 miliardi/anno</strong>. I costi sociali indiretti salgono a 50-70 miliardi (OCSE + Commissione UE).</p>
+    </div>
+
+    <div class="card cg">
+      <span class="clabel">Scenario 2026</span>
+      <div class="ctitle">+20% Produzione se i Controlli Cedono</div>
+      <p class="cbody">Se la coltivazione raggiungesse 300.000+ ettari sotto un governo più permissivo, la produzione potrebbe aumentare del <strong>20%</strong>. I decessi per overdose in UE potrebbero salire da 1.051 a oltre <strong>1.500 l'anno</strong>. I costi sanitari aggiuntivi per l'Europa: +10-15 miliardi annui (stima EUDA).</p>
+    </div>
+  </div>
+</section>
+
+<main class="content">
+
+  <!-- ── SEZIONE 5: BANCHE ── -->
+  <div class="section-head">
+    <div class="bar"></div>
+    <h2>Il Silenzio Mediatico e gli Interessi Sommersi</h2>
+  </div>
+  <div class="prose">
+    <p>Perché un paese che produce la quota maggiore della cocaina destinata all'Europa, alla vigilia di elezioni presidenziali cruciali, occupa meno spazio nei TG italiani di un gossip politico locale? Le risposte sono molteplici e si sovrappongono.</p>
+  </div>
+
+  <div class="silence-grid">
+    <div class="sitem">
+      <div class="st">Agenda dominata da altre crisi</div>
+      <p>Ucraina, Medio Oriente, migrazioni consumano tutto lo spazio disponibile. La Colombia non ha un fronte aperto che l'Europa segua in diretta.</p>
+    </div>
+    <div class="sitem">
+      <div class="st">Accordi commerciali UE-Colombia</div>
+      <p>La Colombia è partner commerciale dell'UE con accordo di libero scambio. Destabilizzare la relazione diplomatica non conviene — meglio guardare altrove.</p>
+    </div>
+    <div class="sitem">
+      <div class="st">Lobby del narcotraffico</div>
+      <p>Cartelli e mafie italiane hanno interesse diretto a mantenere lo status quo. Il silenzio è un prodotto politico, non solo un vuoto editoriale.</p>
+    </div>
+    <div class="sitem">
+      <div class="st">Interessi finanziari profondi</div>
+      <p>Banche e aziende di logistica traggono profitto dal traffico legale di container — la stessa infrastruttura usata dai cartelli. Una regolamentazione più stretta crea perdite reali.</p>
+    </div>
+  </div>
+
+  <div class="bank-box">
+    <div class="bank-title">⚠ Il Caso HSBC e i FinCEN Files: quando le Banche Diventano Canale</div>
+    <p>Il legame tra sistema bancario e narcotraffico non è teoria: è storia documentata. Nel 2012 <strong>HSBC — la più grande banca europea per attivi — ha pagato 1,9 miliardi di dollari</strong> di multa al Dipartimento di Giustizia USA per aver permesso il riciclaggio di almeno 881 milioni di dollari di proventi dei cartelli della droga. Nessun dirigente è stato perseguito penalmente.</p>
+    <p>I <strong>FinCEN Files</strong>, il dataset di rapporti riservati dell'agenzia antiricilaggio del Tesoro americano, hanno poi mostrato che banche come <strong>Deutsche Bank, JPMorgan e Standard Chartered</strong> avevano mosso complessivamente duemila miliardi di dollari in operazioni sospette tra il 1999 e il 2017, con clienti in 170 paesi tra cui cartelli del narcotraffico. Le transazioni erano continuate anche dopo le sanzioni e gli impegni di riforma.</p>
+    <p>Secondo le stime di Europol, <strong>il solo Clan del Golfo colombiano ricicla circa 10 miliardi di dollari l'anno</strong> attraverso società con profilo commerciale reale in Europa — non aziende fantasma, ma imprese operative che acquistano beni di lusso e attività produttive. È in questo contesto che si capisce perché certi interessi preferiscono il silenzio.</p>
+  </div>
+
+  <!-- ── SEZIONE 6: PATTO DELLA PICOTA ── -->
+  <div class="section-head">
+    <div class="bar"></div>
+    <h2>Il Patto della Picota: Giustizia o Impunità?</h2>
+  </div>
+  <div class="prose">
+    <p>Un elemento strutturale del sistema giudiziario colombiano che merita attenzione nel contesto delle elezioni è il cosiddetto <strong>Patto della Picota</strong> — un meccanismo attraverso cui esponenti di organizzazioni criminali, inclusi narcotrafficanti, possono ottenere riduzioni significative della pena in cambio di collaborazione con le autorità giudiziarie. Il nome deriva dal carcere La Picota di Bogotà, dove il meccanismo ha trovato applicazioni particolarmente discusse.</p>
+
+    <p>Da un lato viene presentato come strumento di giustizia restaurativa e di raccolta di informazioni investigative. Dall'altro, numerosi osservatori e magistrati segnalano il rischio concreto che diventi un canale per ridurre l'efficacia deterrente del sistema penale nei confronti della grande criminalità organizzata. Nel contesto delle elezioni del 2026, <strong>la posizione dei candidati rispetto a questi meccanismi di clemenza è un indicatore significativo</strong> del loro approccio reale alla lotta al narcotraffico — al di là della retorica elettorale.</p>
+  </div>
+
+  <!-- ── SEZIONE 7: IMMIGRAZIONE ── -->
+  <div class="section-head">
+    <div class="bar"></div>
+    <h2>Lo Scenario Migratorio: Se la Colombia Diventasse il Venezuela</h2>
+  </div>
+  <div class="prose">
+    <p>C'è una dimensione del problema che i media europei ignorano quasi completamente: le conseguenze migratorie di un eventuale collasso istituzionale della Colombia. Il Venezuela offre il termine di paragone più vicino e più istruttivo. Dal 2014 a oggi, il deterioramento delle condizioni economiche e istituzionali venezuelane ha prodotto una delle più grandi crisi migratorie del continente americano: <strong>oltre 7,7 milioni di venezuelani</strong> hanno lasciato il paese secondo l'UNHCR, con flussi crescenti verso l'Europa e l'Italia. Le richieste di asilo di cittadini venezuelani in Italia sono passate da poche centinaia l'anno nel 2014 a diverse migliaia nel periodo 2019-2024.</p>
+
+    <p>La Colombia conta circa <strong>52 milioni di abitanti</strong> — più del doppio del Venezuela al momento dello scoppio della crisi. Se il paese dovesse scivolare verso un'instabilità comparabile, alimentata da un narcotraffico fuori controllo, da uno stato incapace di garantire sicurezza nelle aree rurali e da una corruzione istituzionale sistemica, i flussi migratori potrebbero risultare proporzionalmente molto superiori.</p>
+
+    <p>I numeri venezuelani parlano da soli: già nel 2018-2019 le richieste di asilo di cittadini venezuelani in Italia erano nell'ordine di <strong>alcune migliaia annue</strong>, con una presenza stimata di quasi <strong>50.000 venezuelani</strong> sul territorio italiano tra richiedenti e residenti non formalizzati. A livello europeo, nel 2024 i venezuelani sono diventati il <strong>secondo gruppo per numero di domande di asilo in tutta l'UE</strong>, con oltre <strong>72.000 richieste</strong> — secondi solo ai siriani e davanti agli afghani (fonte: Parlamento Europeo / Eurostat 2024).</p>
+  </div>
+
+  <div class="alert">
+    <div class="alert-title">⚡ Dato Chiave — Scenario Migratorio</div>
+    <p>Se la Colombia seguisse il percorso del Venezuela, con <strong>52 milioni di abitanti</strong> potrebbe generare flussi migratori verso Europa e Italia di ordine di grandezza doppio o triplo rispetto a quelli venezuelani — che già oggi superano le <strong>72.000 domande annue in UE</strong>. Non è fantapolitica: nei quattro anni di governo Petro il narcotraffico è aumentato del 164%, senza che siano state adottate politiche di contrasto realmente efficaci. <strong>La traiettoria è già visibile.</strong></p>
+  </div>
+
+  <div class="prose">
+    <p>Questa considerazione non è pensata per alimentare allarmismo, ma per evidenziare la dimensione concreta degli interessi europei e italiani nel processo politico colombiano. Le elezioni di Bogotà nel 2026 non sono una questione latinoamericana: sono una questione di sicurezza, sanità pubblica e gestione dei flussi migratori per l'intero continente.</p>
+  </div>
+
+  <!-- ── SEZIONE 8: SCENARI ── -->
+  <div class="section-head">
+    <div class="bar"></div>
+    <h2>Cosa Succede Dopo Petro: gli Scenari per l'Europa</h2>
+  </div>
+  <div class="prose">
+    <p>Le elezioni presidenziali colombiane del 2026 si annunciano come uno spartiacque. Gustavo Petro, l'attuale presidente, ha adottato politiche di dialogo con i gruppi armati con risultati contraddittori: nessuna riduzione reale della coltivazione, aumento record della produzione. <strong>Iván Cepeda è il suo successore designato</strong> per il Pacto Historico.</p>
+  </div>
+
+  <div class="scenario">
+    <div class="sc-title">⚠ Scenario Critico: Governo Permissivo</div>
+    <ul>
+      <li>Coltivazione di coca a 300.000+ ettari, produzione potenzialmente a +20% rispetto ai già record livelli attuali</li>
+      <li>Riduzione delle eradicazioni forzate, dialogo con i narcos come leva politica anziché come strumento investigativo</li>
+      <li>Possibile interferenza diretta dei cartelli nel processo elettorale attraverso finanziamenti illeciti</li>
+      <li>Aumento dei decessi per cocaina in UE: da 1.051 a oltre 1.500 per anno entro cinque anni (stima EUDA)</li>
+      <li>Costi sanitari aggiuntivi per l'Europa: +10-15 miliardi di euro annui</li>
+      <li>Maggiore consolidamento del controllo 'ndrangheta sul mercato europeo e aumento del riciclaggio immobiliare in Italia</li>
+      <li>Potenziale aumento significativo dei flussi migratori colombiani verso Europa e Italia</li>
+      <li>Costi aggiuntivi per la sicurezza in Italia: +1-2 miliardi annui tra sequestri, indagini e cooperazione internazionale</li>
+    </ul>
+  </div>
+
+  <!-- ── CONCLUSIONI ── -->
+  <div class="section-head">
+    <div class="bar"></div>
+    <h2>Conclusioni: Perché Devi Sapere</h2>
+  </div>
+  <div class="prose">
+    <p>Questa inchiesta nasce dalla constatazione che un tema con impatti diretti e misurabili sulla salute, la sicurezza e l'economia degli italiani viene sistematicamente ignorato dal mainstream mediatico. Il silenzio non è casuale: è il risultato sovrapposto di agende editoriali dominate da altre crisi, di interessi economici e finanziari che preferiscono lo status quo, e di reti criminali che hanno tutto da guadagnare dalla distrazione dell'opinione pubblica.</p>
+
+    <p>Chi governerà Bogotà nei prossimi anni determinerà, attraverso catene criminali ben documentate, quanta cocaina circola nelle città europee, quanto costano i servizi sanitari per le dipendenze, quanto investono le mafie nel mattone italiano, e potenzialmente quanti cittadini colombiani busseranno alle frontiere dell'Europa. Ignorare le elezioni colombiane del 2026 non è una scelta neutrale: è una scelta politica.</p>
+  </div>
+
+  <div class="pull-quote">
+    <p>"Il primo passo è sapere. Il secondo è pretendere che chi dovrebbe informare lo faccia. Segui l'inchiesta → @immaginixconoscere"</p>
+  </div>
+
+  <hr class="div">
+
+  <!-- SOURCES -->
+  <div class="sources">
+    <div class="src-lbl">Fonti</div>
+    <p>UNODC – United Nations Office on Drugs and Crime (SIMCI Report 2023-2025) · EUDA – European Union Drugs Agency (2024-2025) · Europol – Serious and Organised Crime Threat Assessment (SOCTA) · ISS – Istituto Superiore di Sanità · DEA – Drug Enforcement Administration (USA) · Policía Nacional España – Comunicato operazione marzo 2024 · Ministero della Salute (Italia) · Guardia di Finanza – Relazione annuale DCSA 2025 · UNHCR – Venezuela Situation Report 2024 · OCSE · Commissione Europea · FinCEN Files (BuzzFeed News / ICIJ, 2020) · Il Sole 24 Ore / Valori.it – FinCEN Files Italia · Interpol</p>
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="fl">Immagini × Conoscere</div>
+  <p>Giornalismo investigativo · OSINT · Geopolitica</p>
+  <p style="margin-top:6px;">Follow → @immaginixconoscere &nbsp;|&nbsp; © 2026 ImmaginiXconoscere. Riproduzione consentita con attribuzione.</p>
+</footer>
+
+</body>
+</html>
