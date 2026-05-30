@@ -54,7 +54,6 @@
     color: var(--bianco);
     line-height: 1;
   }
-  .site-name .nome-fine { color: var(--bianco); }
 
   .oro-line {
     display: block;
@@ -97,11 +96,12 @@
     margin-bottom: 16px;
     display: inline-block;
   }
-  .cat-politica { color: var(--politica); }
-  .cat-storia { color: var(--storia); }
-  .cat-geopolitica { color: var(--geopolitica); }
-  .cat-cronaca { color: var(--cronaca); }
-  .cat-espanol { color: #e67e22; }
+  .cat-politica   { color: var(--politica); }
+  .cat-storia     { color: var(--storia); }
+  .cat-geopolitica{ color: var(--geopolitica); }
+  .cat-cronaca    { color: var(--cronaca); }
+  .cat-espanol    { color: #e67e22; }
+  .cat-inchiesta  { color: #e74c3c; }
 
   .hero-title {
     font-family: 'Playfair Display', serif;
@@ -155,9 +155,8 @@
   .article-card { background: var(--nero); padding: 30px; transition: background 0.2s; }
   .article-card:hover { background: #0f0f0f; }
 
-  .article-card.featured-es {
-    border-top: 2px solid #e67e22;
-  }
+  .article-card.featured-es      { border-top: 2px solid #e67e22; }
+  .article-card.featured-inchiesta{ border-top: 2px solid #e74c3c; }
 
   .article-title {
     font-family: 'Playfair Display', serif;
@@ -173,6 +172,16 @@
     font-size: 9px;
     letter-spacing: 2px;
     background: #e67e22;
+    color: #fff;
+    padding: 2px 7px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+  }
+  .inchiesta-badge {
+    display: inline-block;
+    font-size: 9px;
+    letter-spacing: 2px;
+    background: #e74c3c;
     color: #fff;
     padding: 2px 7px;
     margin-bottom: 10px;
@@ -201,13 +210,13 @@
 <body>
 
 <div class="topbar">
-  <span class="topbar-left">Domenica, 8 Marzo 2026</span>
+  <span class="topbar-left">Sabato, 30 Maggio 2026</span>
   <span class="topbar-right">Facebook · Instagram · <span>@immaginixconoscere</span></span>
 </div>
 
 <header>
   <div class="header-main">
-    <h1 class="site-name">Immagini<span class="logo-x">✕</span><span class="nome-fine">conoscere</span></h1>
+    <h1 class="site-name">Immagini<span style="color:var(--oro)">✕</span>conoscere</h1>
     <span class="oro-line"></span>
     <p class="site-subtitle">Analisi · Politica · Storia · Geopolitica</p>
   </div>
@@ -222,17 +231,24 @@
 
 <div class="divider"></div>
 
+<!-- HERO: nuovo articolo Colombia -->
 <div class="hero">
   <div class="hero-main">
-    <span class="article-category cat-geopolitica">Geopolitica · Inchiesta Esclusiva</span>
-    <h2 class="hero-title">Il passaporto italiano di Petro: un documento, troppe domande</h2>
+    <span class="article-category cat-inchiesta">Geopolitica · Inchiesta Esclusiva</span>
+    <h2 class="hero-title">Elezioni in Colombia e Narcotraffico: perché l'Italia non ne parla?</h2>
     <p class="hero-excerpt">
-      Un ex guerrigliero dell'M-19, presidente della Colombia, con un passaporto italiano. Come lo ha ottenuto? Quando? E chi ha istruito la pratica in un comune irpino di milleduecento abitanti? Le domande che nessuno ha ancora risposto.
+      Nel 2026 la Colombia eleggerà il successore di Gustavo Petro. Una decisione che riguarda direttamente l'Europa: la Colombia è il primo produttore mondiale di cocaina, e la quota maggiore di questa produzione è destinata al nostro continente. L'asse tra cartelli, 'ndrangheta e banche europee. Il silenzio mediatico. Gli scenari per l'Italia.
     </p>
-    <a href="petro, pronto_passaporto_FINALE-1.html" class="read-more">Continua a leggere</a>
+    <a href="ixc_colombia_narcotraffico_v2.html" class="read-more">Leggi l'inchiesta</a>
   </div>
 
   <div class="hero-sidebar">
+    <div class="sidebar-article">
+      <span class="article-category cat-geopolitica">Geopolitica · Inchiesta</span>
+      <h3 class="sidebar-title"><a href="petro, pronto_passaporto_FINALE-1.html">Il passaporto italiano di Petro: un documento, troppe domande</a></h3>
+      <p class="sidebar-excerpt">Un ex guerrigliero dell'M-19 con un passaporto italiano. Come lo ha ottenuto? Le domande senza risposta.</p>
+      <br><a href="petro, pronto_passaporto_FINALE-1.html" class="read-more">Continua a leggere</a>
+    </div>
     <div class="sidebar-article">
       <span class="article-category cat-espanol">🇪🇸 En Español</span>
       <h3 class="sidebar-title"><a href="petro_es_DEFINITIVO.html">Petro y el Pasaporte Italiano — Investigación exclusiva</a></h3>
@@ -244,16 +260,19 @@
       <h3 class="sidebar-title">Governo Meloni a metà mandato: il bilancio</h3>
       <p class="sidebar-excerpt">Due anni di governo tra promesse mantenute e occasioni mancate.</p>
     </div>
-    <div class="sidebar-article">
-      <span class="article-category cat-storia">Storia</span>
-      <h3 class="sidebar-title">De Gasperi e Togliatti: i padri dimenticati</h3>
-      <p class="sidebar-excerpt">Il confronto tra i due giganti della Prima Repubblica e la loro eredità.</p>
-    </div>
   </div>
 </div>
 
 <p class="section-label">— Ultimi articoli</p>
 <div class="articles-grid">
+
+  <div class="article-card featured-inchiesta">
+    <div class="inchiesta-badge">Inchiesta Esclusiva</div>
+    <span class="article-category cat-inchiesta">Geopolitica · Crimine Organizzato</span>
+    <h3 class="article-title"><a href="ixc_colombia_narcotraffico_v2.html">Elezioni in Colombia e Narcotraffico: perché l'Italia non ne parla?</a></h3>
+    <p class="article-excerpt">L'asse cartelli-'ndrangheta-banche. "El Zar", il terminale europeo del Cartello di Medellín. Il rischio Mercosur. Lo scenario migratorio. I dati che nessuno mostra.</p>
+    <a href="ixc_colombia_narcotraffico_v2.html" class="read-more">Leggi l'inchiesta</a>
+  </div>
 
   <div class="article-card featured-es">
     <div class="lang-badge">🇪🇸 Investigación en Español</div>
