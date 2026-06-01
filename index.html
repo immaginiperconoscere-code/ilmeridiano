@@ -157,6 +157,7 @@
 
   .article-card.featured-es      { border-top: 2px solid #e67e22; }
   .article-card.featured-inchiesta{ border-top: 2px solid #e74c3c; }
+  .article-card.featured-breaking { border-top: 2px solid var(--rosso); }
 
   .article-title {
     font-family: 'Playfair Display', serif;
@@ -187,10 +188,20 @@
     margin-bottom: 10px;
     text-transform: uppercase;
   }
+  .breaking-badge {
+    display: inline-block;
+    font-size: 9px;
+    letter-spacing: 2px;
+    background: var(--rosso);
+    color: #fff;
+    padding: 2px 7px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+  }
 
   footer { border-top: 1px solid #1a1a1a; margin-top: 60px; padding: 40px; text-align: center; }
   .footer-name { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; color: var(--bianco); margin-bottom: 10px; }
-  .footer-name span { color: var(--oro); }
+  .footer-name span { color: var(--rosso); }
   .footer-text { font-size: 12px; color: #333; letter-spacing: 1px; }
 
   @media (max-width: 768px) {
@@ -210,13 +221,13 @@
 <body>
 
 <div class="topbar">
-  <span class="topbar-left">Sabato, 30 Maggio 2026</span>
+  <span class="topbar-left" id="current-date">Lunedì, 1 Giugno 2026</span>
   <span class="topbar-right">Facebook · Instagram · <span>@immaginixconoscere</span></span>
 </div>
 
 <header>
   <div class="header-main">
-    <h1 class="site-name">Immagini<span style="color:var(--oro)">✕</span>conoscere</h1>
+    <h1 class="site-name">Immagini<span style="color:var(--rosso)">✕</span>conoscere</h1>
     <span class="oro-line"></span>
     <p class="site-subtitle">Analisi · Politica · Storia · Geopolitica</p>
   </div>
@@ -231,7 +242,7 @@
 
 <div class="divider"></div>
 
-<!-- HERO: nuovo articolo Colombia -->
+<!-- HERO: inchiesta narcotraffico -->
 <div class="hero">
   <div class="hero-main">
     <span class="article-category cat-inchiesta">Geopolitica · Inchiesta Esclusiva</span>
@@ -244,6 +255,12 @@
 
   <div class="hero-sidebar">
     <div class="sidebar-article">
+      <span class="article-category cat-geopolitica">Geopolitica · America Latina</span>
+      <h3 class="sidebar-title"><a href="colombia-ballottaggio.html">Colombia al bivio: De La Espriella vince il primo turno, ma il governo Petro non accetta il risultato</a></h3>
+      <p class="sidebar-excerpt">Vittoria a sorpresa della destra. Ballottaggio il 21 giugno. Petro e Cepeda contestano lo scrutinio.</p>
+      <br><a href="colombia-ballottaggio.html" class="read-more">Continua a leggere</a>
+    </div>
+    <div class="sidebar-article">
       <span class="article-category cat-geopolitica">Geopolitica · Inchiesta</span>
       <h3 class="sidebar-title"><a href="petro, pronto_passaporto_FINALE-1.html">Il passaporto italiano di Petro: un documento, troppe domande</a></h3>
       <p class="sidebar-excerpt">Un ex guerrigliero dell'M-19 con un passaporto italiano. Come lo ha ottenuto? Le domande senza risposta.</p>
@@ -255,16 +272,19 @@
       <p class="sidebar-excerpt">La versión en español de nuestra investigación. Para lectores colombianos y latinoamericanos.</p>
       <br><a href="petro_es_DEFINITIVO.html" class="read-more">Leer en español</a>
     </div>
-    <div class="sidebar-article">
-      <span class="article-category cat-politica">Politica</span>
-      <h3 class="sidebar-title">Governo Meloni a metà mandato: il bilancio</h3>
-      <p class="sidebar-excerpt">Due anni di governo tra promesse mantenute e occasioni mancate.</p>
-    </div>
   </div>
 </div>
 
 <p class="section-label">— Ultimi articoli</p>
 <div class="articles-grid">
+
+  <div class="article-card featured-breaking">
+    <div class="breaking-badge">🔴 Ultim'ora</div>
+    <span class="article-category cat-geopolitica">Geopolitica · America Latina</span>
+    <h3 class="article-title"><a href="colombia-ballottaggio.html">Colombia al bivio: De La Espriella vince il primo turno, ma il governo Petro non accetta il risultato</a></h3>
+    <p class="article-excerpt">Vittoria a sorpresa della destra di "El Tigre" (43,7%). Ballottaggio il 21 giugno contro Cepeda. Petro e Cepeda non riconoscono lo scrutinio. Paloma Valencia appoggia il vincitore.</p>
+    <a href="colombia-ballottaggio.html" class="read-more">Leggi l'articolo</a>
+  </div>
 
   <div class="article-card featured-inchiesta">
     <div class="inchiesta-badge">Inchiesta Esclusiva</div>
@@ -309,6 +329,8 @@
   <div class="footer-name">Immagini<span>✕</span>conoscere</div>
   <p class="footer-text">© 2026 ImmaginiXconoscere · Analisi · Politica · Storia · Geopolitica</p>
 </footer>
+
+<script>const d=new Date();const giorni=["Domenica","Lunedì","Martedì","Mercoledì","Giovedì","Venerdì","Sabato"];const mesi=["Gennaio","Febbraio","Marzo","Aprile","Maggio","Giugno","Luglio","Agosto","Settembre","Ottobre","Novembre","Dicembre"];document.getElementById("current-date").textContent=`${giorni[d.getDay()]}, ${d.getDate()} ${mesi[d.getMonth()]} ${d.getFullYear()}`;</script>
 
 </body>
 </html>
